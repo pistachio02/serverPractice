@@ -29,12 +29,14 @@ module.exports = (req, res) => {
             // 만약 이메일도 등록되어 있고, 비번도 일치한다면,
             // generateAccessToken 이라는 JWT 엑세스 토큰을 만들어주는 함수를 미리 만들어놓고(인자로 전달된 데이터 중 비번은 지우고 토큰에 데이터를 담는다.),
             const accessToken = generateAccessToken(data.dataValues);
+            // console.log(accessToken)
             // 데이터베이스에 입력되어있던 해당 유저정보들을 이용해서 엑세스토큰을 하나 만든다.
-            res
+            return res
                 .cookie("accessToken", accessToken, {
                     httpOnly: true,
-                    // secure: true,
+                    secure: true,
                     sameSite: "none",
+                    expiresIn: "1d"
                 })
                 // 응답으로 쿠키에 해당 유저의 정보(비번제외)를 담은 엑세스토큰을 담아 보내주고,
                 // secure 옵션을 주석처리한것은 우선 지금은 https가 아닌 http 서버로 기능 구현 테스트를 하고 있기 때문이다.

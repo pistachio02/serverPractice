@@ -2,7 +2,7 @@ const { Users } = require('../../models');
 require('dotenv').config();
 const { verify } = require('jsonwebtoken');
 
-module.exports = (req, res) => {
+module.exports = (req, res) => {    
     const accessToken = req.cookies.accessToken;
     // 요청의 쿠키에 있는 엑세스토큰을 따로 변수에 할당해준다.
     if(!accessToken) {
