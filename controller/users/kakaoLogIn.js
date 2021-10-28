@@ -9,6 +9,7 @@ const clientID = process.env.KAKAO_CLIENT_ID;
 module.exports = (req, res) => {
 
     const authCode = req.body.authorizationCode;
+    // console.log("+++++++++++++++++++++++++", authCode)
 
     const formUrlEncoded = x =>
     Object.keys(x).reduce((p, c) => p + `&${c}=${encodeURIComponent(x[c])}`, '')
@@ -19,7 +20,7 @@ module.exports = (req, res) => {
         formUrlEncoded({
           grant_type: 'authorization_code',
           client_id: clientID,
-          redirect_uri: 'http://localhost:3000',
+          redirect_uri: 'http://localhost:3000/',
           code: authCode
         }),
         {
@@ -74,7 +75,7 @@ module.exports = (req, res) => {
                         })
                         .status(200)
                         .json({ 
-                            userInfo: data.dataValues,
+                            userInfo: newUser.dataValues,
                             message: 'Successfully Logged In!' 
                         });
             }
