@@ -5,4 +5,5 @@ module.exports = {
     unRegister: require('./users/unRegister'),
     login: require('./users/logIn'),
     logout: require('./users/logOut'),
+    kakaologin: require('./users/kakaoLogIn'),
 };

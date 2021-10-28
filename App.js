@@ -53,6 +53,9 @@ app.post('/login', controller.login);
 // 아래는 로그아웃 요청
 app.post('/logout', controller.logout);
 
+// 아래는 카카오 로그인 요청
+app.post('/kakaologin', controller.kakaologin);
+
 // const port = 4000;
 // let server = app.listen(port, () => console.log(`http 서버가 ${port}번에서 작동중입니다.`));
 // module.exports = server;

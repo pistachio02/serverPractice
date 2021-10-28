@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
         // 이메일이나 닉네임이 가입되어있는 유저 정보에 등록되어있는것이 아니라면 새롭게 회원 가입을 해줘야 한다. 즉 전달된 이메일, 해시된 비번, 닉네임을 새롭게 데이터베이스에 추가해준다.
         const generateAccessToken = (data) => {
             delete data.password;
-            return sign(data, process.env.ACCESS_SECRET, { expiresIn: "7d" });
+            return sign(data, process.env.ACCESS_SECRET, { expiresIn: "1d" });
         }
         // generateAccessToken 이라는 JWT 엑세스 토큰을 만들어주는 함수를 미리 만들어놓고(인자로 전달된 데이터 중 비번은 지우고 토큰에 데이터를 담는다.),
         const accessToken = generateAccessToken(newUser.dataValues);
