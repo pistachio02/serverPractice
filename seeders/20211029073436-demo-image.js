@@ -61,6 +61,11 @@ module.exports = {
     //   image: 'https://touchimg.s3.ap-northeast-2.amazonaws.com/SheikhZayedGrandMosqueAbuDhabi.jpg',
     //   createdAt: new Date(),
     //   updatedAt: new Date()
+    // }], {}),
+    // await queryInterface.bulkInsert('Images', [{
+    //   image: 'https://touchimg.s3.ap-northeast-2.amazonaws.com/%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%8B%E1%85%AE%E1%86%B7%E1%84%8D%E1%85%A1%E1%86%AF.gif',
+    //   createdAt: new Date(),
+    //   updatedAt: new Date()
     // }], {})
 
   },
