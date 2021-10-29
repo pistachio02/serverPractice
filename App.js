@@ -56,6 +56,9 @@ app.post('/logout', controller.logout);
 // 아래는 카카오 로그인 요청
 app.post('/kakaologin', controller.kakaologin);
 
+// 아래는 이미지 요청
+app.get('/images', controller.images);
+
 // const port = 4000;
 // let server = app.listen(port, () => console.log(`http 서버가 ${port}번에서 작동중입니다.`));
 // module.exports = server;

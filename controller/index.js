@@ -6,4 +6,5 @@ module.exports = {
     login: require('./users/logIn'),
     logout: require('./users/logOut'),
     kakaologin: require('./users/kakaoLogIn'),
+    images: require('./healings/image'),
 };
