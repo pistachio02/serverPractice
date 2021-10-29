@@ -9,7 +9,6 @@ const clientID = process.env.KAKAO_CLIENT_ID;
 module.exports = (req, res) => {
 
     const authCode = req.body.authorizationCode;
-    // console.log("+++++++++++++++++++++++++", authCode)
 
     const formUrlEncoded = x =>
     Object.keys(x).reduce((p, c) => p + `&${c}=${encodeURIComponent(x[c])}`, '')
@@ -30,19 +29,17 @@ module.exports = (req, res) => {
         }
       )
       .then((response) => {
-        // console.log(response.data)
-        const accessToken = response.data.access_token;
+        const kakaoAccessToken = response.data.access_token;
 
         axios.get(
           'https://kapi.kakao.com/v2/user/me', 
           {
             headers: { 
-              Authorization: `Bearer ${accessToken}`
+              Authorization: `Bearer ${kakaoAccessToken}`
             }
           },
           { withCredentials: true })
           .then(async (data) => {
-            // console.log(data.data)
             const nickname = data.data.properties.nickname;
             const email = data.data.kakao_account.email;
             const password = "kakaoUser"
