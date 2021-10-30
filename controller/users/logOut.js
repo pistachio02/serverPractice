@@ -15,8 +15,15 @@ module.exports = (req, res) => {
             if(!data) {
                 return res.status(401).json({ "message": "Invalid accessToken!" });
             } else {
-                const pw = bcrypt.compareSync("kakaoUser", data.dataValues.password);
-                if(pw === true) {
+                const kpw = bcrypt.compareSync("kakaoUser", data.dataValues.password);
+                const gpw = bcrypt.compareSync("googleUser", data.dataValues.password);
+                if(kpw === true) {
+                    Users.destroy({ where: { email: data.dataValues.email } })
+                    return res
+                            .clearCookie('accessToken')
+                            .status(205)
+                            .json({ message: 'Successfully Logged Out!' });
+                } else if(gpw === true) {
                     Users.destroy({ where: { email: data.dataValues.email } })
                     return res
                             .clearCookie('accessToken')

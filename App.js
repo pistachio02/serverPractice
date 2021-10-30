@@ -53,8 +53,8 @@ app.post('/login', controller.login);
 // 아래는 로그아웃 요청
 app.post('/logout', controller.logout);
 
-// 아래는 카카오 로그인 요청
-app.post('/kakaologin', controller.kakaologin);
+// 아래는 카카오 & 구글 로그인 요청
+app.post('/oauthlogin', controller.kakaogooglelogin);
 
 // 아래는 이미지 요청
 app.get('/images', controller.images);
