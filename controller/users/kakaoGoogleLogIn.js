@@ -108,7 +108,7 @@ module.exports = (req, res) => {
             },
             { withCredentials: true })
             .then(async (data) => {
-              // console.log(data.data)
+              console.log(data.data)
               const nickname = data.data.name;
               const email = data.data.email;
               const password = "googleUser"

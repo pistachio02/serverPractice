@@ -62,6 +62,27 @@ app.get('/images', controller.images);
 // 아래는 사운드 요청
 app.get('/sounds', controller.sounds);
 
+// 아래는 전체 게시글 보기 목록 요청
+app.get('/list', controller.posts);
+
+// 아래는 게시글 1개 보기 요청
+app.get('/board/view/:id', controller.post);
+
+// 아래는 게시글에 대한 댓글 목록 요청
+app.get('/view/:id/comments', controller.comments);
+
+// 아래는 댓글 달기 요청
+app.post('/board/write/comment', controller.addComment);
+
+// 아래는 댓글 삭제 요청
+app.post('/board/delete/comment', controller.DeleteComment);
+
+// 아래는 게시글 등록 및 수정 요청
+app.post('/board/write', controller.AddPost);
+
+// 아래는 게시글 삭제 요청
+app.post('/board/delete', controller.DeletePost);
+
 // const port = 4000;
 // let server = app.listen(port, () => console.log(`http 서버가 ${port}번에서 작동중입니다.`));
 // module.exports = server;
