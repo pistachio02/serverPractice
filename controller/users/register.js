@@ -16,9 +16,9 @@ module.exports = async (req, res) => {
     const hashedPassword = bcrypt.hashSync(password, 10);
 
     if(userEmail !== null) {
-        return res.status(409).json({ message: "E-mail Already Exists!" });
+        return res.send("E-mail Already Exists!");
     } else if(userNickname !== null) {
-        return res.status(409).json({ message: "Nickname Already Exists!" });
+        return res.send("Nickname Already Exists!");
     } else {
         const newUser = await Users.create({
             email: email,

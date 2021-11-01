@@ -11,11 +11,11 @@ module.exports = (req, res) => {
         .then((data) => {
 
             if(!data) {
-                return res.status(404).json({ message: 'Invalid E-mail!' });
+                return res.send('Invalid E-mail!');
             }
             const hashedPassword = bcrypt.compareSync(password, data.dataValues.password);
             if(!hashedPassword) {
-                return res.status(404).json({ message: 'Invalid Password!' });
+                return res.send('Invalid Password!');
             }
             const generateAccessToken = (userInfo) => {
                 delete userInfo.password;
