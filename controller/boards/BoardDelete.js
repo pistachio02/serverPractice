@@ -2,7 +2,6 @@ const { Users } = require('../../models');
 const { Posts } = require('../../models');
 const { Comments } = require('../../models');
 const { verify } = require('jsonwebtoken');
-const { post } = require('..');
 
 module.exports = (req, res) => {
     const postId = req.body.id;
