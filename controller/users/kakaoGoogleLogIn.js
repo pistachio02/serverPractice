@@ -98,7 +98,6 @@ module.exports = (req, res) => {
         })
         .then((data) => {
           const googleAccessToken = data.data.access_token;
-          // console.log(res.data)
           axios.get(
             'https://www.googleapis.com/oauth2/v3/userinfo', 
             {
@@ -108,12 +107,10 @@ module.exports = (req, res) => {
             },
             { withCredentials: true })
             .then(async (data) => {
-              // console.log(data.data)
               const nickname = data.data.name;
               const email = data.data.email;
               const password = "googleUser"
               const hashedPassword = bcrypt.hashSync(password, 10);
-              // console.log(nickname, email)
 
               const userEmail = await Users.findOne({ where: { email }});
               const userNickname = await Users.findOne({ where: { nickname }});

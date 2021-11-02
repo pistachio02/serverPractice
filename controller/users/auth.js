@@ -18,8 +18,6 @@ module.exports = async (req, res) => {
 
     const accessTokenData = isAuthorized(req);
 
-    // console.log(req)
-
     if(!accessTokenData) {
         res.status(401).send({ data: null, message: 'Not Authorized!' });
     } else {

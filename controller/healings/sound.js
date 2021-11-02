@@ -5,7 +5,6 @@ const { verify } = require('jsonwebtoken');
 
 module.exports = (req, res) => {
     const accessToken = req.cookies.accessToken
-    // console.log(accessToken)
 
     if(!accessToken) {
         Sounds
