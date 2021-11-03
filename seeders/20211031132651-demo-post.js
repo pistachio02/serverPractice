@@ -1,8 +1,5 @@
 'use strict';
 
-const { NOW } = require("sequelize");
-const { now } = require("sequelize/types/lib/utils");
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**

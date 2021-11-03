@@ -56,11 +56,8 @@ app.post('/logout', controller.logout);
 // 아래는 카카오 & 구글 로그인 요청
 app.post('/oauthlogin', controller.kakaogooglelogin);
 
-// 아래는 이미지 요청
-app.get('/images', controller.images);
-
-// 아래는 사운드 요청
-app.get('/sounds', controller.sounds);
+// 아래는 힐링페이지 관련 요청
+app.get('/healing', controller.healing)
 
 // 아래는 전체 게시글 보기 목록 요청
 app.get('/list', controller.posts);
