@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     const page = parseInt(req.query.page);
     const offset = (page -1) * pageSize
     const totalCount = await Posts.findAll().then((data) => { return data.length })
-    console.log(totalCount)
+    // console.log(totalCount)
 
     Posts
         .findAll({ offset: offset, limit: pageSize })
