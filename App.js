@@ -94,7 +94,7 @@ app.get('/zzim', controller.zzim);
 app.post('/zzim', controller.addZzim);
 
 // 아래는 찜 삭제하기 요청
-app.delete('/zzim', controller.deleteZzim);
+app.post('/delzzim', controller.deleteZzim);
 
 // 아래는 내 게시글 목록 불러오기 요청
 app.get('/myposts', controller.myPosts);
