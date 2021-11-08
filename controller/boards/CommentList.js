@@ -9,4 +9,7 @@ module.exports = (req, res) => {
             const commentInfo = data.map((el) => { return el.dataValues })
             res.json({ commentInfo })
         })
+        .catch((err) => {
+            console.log(err);
+        });
 }

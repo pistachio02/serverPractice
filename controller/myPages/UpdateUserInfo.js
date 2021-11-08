@@ -46,9 +46,9 @@ module.exports = async (req, res) => {
                             console.log(err);
                         });
                 }
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 };

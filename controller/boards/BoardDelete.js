@@ -38,10 +38,21 @@ module.exports = (req, res) => {
                                     .then(() => {
                                         res.send("Post Successfully Deleted!");
                                     })
-                            })
+                                    .catch((err) => {
+                                        console.log(err);
+                                    });
+                            }).catch((err) => {
+                                console.log(err);
+                            });
                     } else {
                         res.send("Not Allowed!");
                     }
                 })
+                .catch((err) => {
+                    console.log(err);
+                });
         })
+        .catch((err) => {
+            console.log(err);
+        });
 }

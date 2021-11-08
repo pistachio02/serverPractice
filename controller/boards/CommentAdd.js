@@ -34,5 +34,11 @@ module.exports = (req, res) => {
               .then(() => {
                   return res.json({ message: "Comment Successfully Posted!" })
               })
+              .catch((err) => {
+                console.log(err);
+            });
         })
+        .catch((err) => {
+          console.log(err);
+      });
 }

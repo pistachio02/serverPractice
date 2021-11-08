@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
     const pageSize = 6;
     const page = parseInt(req.query.page);
     const offset = (page -1) * pageSize
-    const totalCount = await Posts.findAll().then((data) => { return data.length })
+    const totalCount = await Posts.findAll().then((data) => { return data.length }).catch((err) => {console.log(err)});
 
     Posts
         .findAll({ offset: offset, limit: pageSize })
@@ -29,4 +29,7 @@ module.exports = async (req, res) => {
                 list: data
             });
         })
+        .catch((err) => {
+            console.log(err);
+        });
 }

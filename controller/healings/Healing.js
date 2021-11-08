@@ -6,4 +6,7 @@ module.exports = (req, res) => {
             .then((data) => {
                 return res.send(data)
             })
+            .catch((err) => {
+                console.log(err);
+            });
 }

@@ -26,9 +26,9 @@ module.exports = async (req, res) => {
             .then((data) => {
                 delete data.dataValues.password;
                 return res.status(200).json({ data: { userInfo: data.dataValues }, message: 'ok!' })
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 }

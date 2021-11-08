@@ -9,4 +9,7 @@ module.exports = (req, res) => {
             const postInfo = data[0].dataValues
             res.json({ postInfo })
         })
+        .catch((err) => {
+            console.log(err);
+        });
 }

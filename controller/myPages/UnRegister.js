@@ -20,4 +20,7 @@ module.exports = (req, res) => {
                     .status(205)
                     .json({ message: 'Successfully Unregistered!' });
         })
+        .catch((err) => {
+            console.log(err);
+        });
 };

@@ -36,7 +36,13 @@ module.exports = (req, res) => {
                     .then(() => {
                         return res.send("Post Successfully Posted!")
                     })
+                    .catch((err) => {
+                        console.log(err);
+                    });
             })
+            .catch((err) => {
+                console.log(err);
+            });
     } else {
       Users
           .findOne({ where: { id: accessTokenData.id } })
@@ -58,10 +64,19 @@ module.exports = (req, res) => {
                                 .then(() => {
                                     return res.send("Post Successfully Updated!")
                                 })
+                                .catch((err) => {
+                                    console.log(err);
+                                });
                         } else {
                           res.send("Not Allowed!" )
                         }
                     })
+                    .catch((err) => {
+                        console.log(err);
+                    });
           })
+          .catch((err) => {
+            console.log(err);
+          });
     }
 }

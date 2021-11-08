@@ -34,9 +34,18 @@ module.exports = (req, res) => {
                             .then(() => {
                                 return res.send("Comment Successfully Deleted!")
                             })
+                            .catch((err) => {
+                                console.log(err);
+                            });
                     } else {
                         return res.send('Not Allowed!')
                     }
                 })
+                .catch((err) => {
+                    console.log(err);
+                });
         })
+        .catch((err) => {
+            console.log(err);
+        });
 }

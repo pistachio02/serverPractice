@@ -9,11 +9,11 @@ module.exports = {
     // ( ++++++++++++++++++++ 띄어놓기 띄어놓기 띄어놓기 ++++++++++++++++++++ )
     posts: require('./boards/BoardList'),
     post: require('./boards/Board'),
+    addUpdatePost: require('./boards/BoardAddUpdate'),
+    deletePost: require('./boards/BoardDelete'),
     comments: require('./boards/CommentList'),
     addComment: require('./boards/CommentAdd'),
     deleteComment: require('./boards/CommentDelete'),
-    addPost: require('./boards/BoardAddUpdate'),
-    deletePost: require('./boards/BoardDelete'),
     // ( ++++++++++++++++++++ 띄어놓기 띄어놓기 띄어놓기 ++++++++++++++++++++ )
     updateUserInfo: require('./myPages/UpdateUserInfo'),
     unRegister: require('./myPages/UnRegister'),
