@@ -40,13 +40,25 @@ module.exports = async (req, res) => {
             .then((data) => {
                 const totalPage = getTotalPage(totalCount, pageSize);
 
+                const newData = data.map(el => el.dataValues)
+                const NewData = newData.map((el) => {
+                    let data = {};
+                    data.id = el.id;
+                    data.title = el.title;
+                    data.content = el.content;
+                    data.user_nickname = el.user_nickname;
+                    data.createdAt = el.createdAt.toLocaleString("ko-KR", {timeZone: "Asia/Seoul"});
+                    data.updatedAt = el.updatedAt.toLocaleString("ko-KR", {timeZone: "Asia/Seoul"});
+                    return data;
+                })
+
                 return res.json({
                             info: {
                                 currentPage: page,
                                 totalPage: totalPage,
                                 totalCount: totalCount
                             },
-                            list: data
+                            list: NewData
                 });
             })
             .catch((err) => {

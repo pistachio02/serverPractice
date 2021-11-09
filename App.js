@@ -17,7 +17,7 @@ app.use(cors(
     origin: true,
     credentials: true,
   })
-  );
+);
   // app.use(morgan());
 app.use(cookieParser());
 
