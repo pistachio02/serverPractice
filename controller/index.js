@@ -17,8 +17,8 @@ module.exports = {
     // ( ++++++++++++++++++++ 띄어놓기 띄어놓기 띄어놓기 ++++++++++++++++++++ )
     updateUserInfo: require('./myPages/UpdateUserInfo'),
     unRegister: require('./myPages/UnRegister'),
-    zzim: require('./myPages/zzimList'),
-    addZzim: require('./myPages/addZzim'),
-    deleteZzim: require('./myPages/deleteZzim'),
-    myPosts: require('./myPages/myPost'),
+    zzim: require('./myPages/ZzimList'),
+    addZzim: require('./myPages/AddZzim'),
+    deleteZzim: require('./myPages/DeleteZzim'),
+    myPosts: require('./myPages/MyPost'),
 };
