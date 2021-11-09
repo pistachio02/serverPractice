@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
         const totalCount = await Posts.findAll({ where: { user_nickname: accessTokenData.nickname } }).then((data) => { return data.length })
 
         Posts
-            .findAll({ where: { user_nickname: accessTokenData.nickname }, offset: offset, limit: pageSize })
+            .findAll({ where: { user_nickname: accessTokenData.nickname }, offset: offset, limit: pageSize, order: [['id', 'DESC']] })
             .then((data) => {
                 const totalPage = getTotalPage(totalCount, pageSize);
 

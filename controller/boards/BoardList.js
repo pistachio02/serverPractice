@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
     const totalCount = await Posts.findAll().then((data) => { return data.length }).catch((err) => {console.log(err)});
 
     Posts
-        .findAll({ offset: offset, limit: pageSize })
+        .findAll({ offset: offset, limit: pageSize, order: [['id', 'DESC']] })
         .then((data) => {
             const totalPage = getTotalPage(totalCount, pageSize);
 
