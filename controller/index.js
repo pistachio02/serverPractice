@@ -1,9 +1,9 @@
 module.exports = {
-    auth: require('./users/Auth'),
-    register: require('./users/Register'),
-    login: require('./users/LogIn'),
-    logout: require('./users/LogOut'),
-    kakaogooglelogin: require('./users/KakaoGoogleLogIn'),
+    auth: require('./users/auth'),
+    register: require('./users/register'),
+    login: require('./users/logIn'),
+    logout: require('./users/logOut'),
+    kakaogooglelogin: require('./users/kakaoGoogleLogIn'),
     // ( ++++++++++++++++++++ 띄어놓기 띄어놓기 띄어놓기 ++++++++++++++++++++ )
     healing: require('./healings/Healing'),
     // ( ++++++++++++++++++++ 띄어놓기 띄어놓기 띄어놓기 ++++++++++++++++++++ )
@@ -17,8 +17,8 @@ module.exports = {
     // ( ++++++++++++++++++++ 띄어놓기 띄어놓기 띄어놓기 ++++++++++++++++++++ )
     updateUserInfo: require('./myPages/UpdateUserInfo'),
     unRegister: require('./myPages/UnRegister'),
-    zzim: require('./myPages/ZzimList'),
-    addZzim: require('./myPages/AddZzim'),
-    deleteZzim: require('./myPages/DeleteZzim'),
-    myPosts: require('./myPages/MyPost'),
+    zzim: require('./myPages/zzimList'),
+    addZzim: require('./myPages/addZzim'),
+    deleteZzim: require('./myPages/deleteZzim'),
+    myPosts: require('./myPages/myPost'),
 };
