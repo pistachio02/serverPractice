@@ -11,7 +11,7 @@ const getTotalPage = (totalCount, pageSize) => {
 
 module.exports = async (req, res) => {
 
-    const pageSize = 10;
+    const pageSize = 6;
     const page = parseInt(req.query.page);
     const offset = (page -1) * pageSize
     

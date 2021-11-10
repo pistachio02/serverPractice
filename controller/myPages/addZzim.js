@@ -21,15 +21,25 @@ module.exports = async (req, res) => {
 
     const healing_id = req.body.healing_id;
 
-    const alreadyAdded = await Zzims.findOne({ where: { healing_id: healing_id } });
+    const alreadyAdded = await Zzims.findAll({ where: { user_id: accessTokenData.id } });
+    
+    const alAdded = alreadyAdded.map((el) => {
+        if(el.healing_id === healing_id) {
+            return true;
+        } else {
+            return false;
+        }
+    })
 
     if(!accessTokenData) {
         return res.status(401).send({ data: null, message: 'Not Authorized!' });
     } else {
-        if(alreadyAdded) {
-            return res.send("Already Added to Zzim!");
-        } else {
-            Zzims
+        for(const el of alAdded){
+            if(el === true){
+                return res.send("Already Added to Zzim!");
+            }
+        }
+        Zzims
             .create({
                 user_id: accessTokenData.id,
                 healing_id: healing_id
@@ -40,6 +50,5 @@ module.exports = async (req, res) => {
             .catch((err) => {
                 console.log(err);
             });
-        };
     }
 };
