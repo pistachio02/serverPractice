@@ -4,8 +4,7 @@ const bcrypt = require('bcrypt');
 
 module.exports = async (req, res) => {
 
-    const newNickname = req.body.userForm.nickname;
-    const newPassword = req.body.userForm.password;
+    const newPassword = req.body.userPassword;
     const hashedPassword = bcrypt.hashSync(newPassword, 10);
 
     const isAuthorized = (req) => {
@@ -22,25 +21,22 @@ module.exports = async (req, res) => {
     }
 
     const accessTokenData = isAuthorized(req);
-
-    const userNickname = await Users.findOne({ where: { nickname: newNickname }});
     
     if(!accessTokenData) {
         res.status(401).send({ data: null, message: 'Not Authorized!' });
     } else {
         Users
             .findOne({ where: { id: accessTokenData.id } })
-            .then(() => {
-                if(userNickname !== null){
-                    return res.send("Nickname Is Being Used By Other User!");
+            .then((data) => {
+                const oldPW = data.dataValues.password;
+                const rawOldPW = bcrypt.compareSync(newPassword, oldPW);
+                if(rawOldPW === true) {
+                    return res.send('Your Password Is Same As The Old One!');
                 } else {
                     Users
-                        .update({ nickname: newNickname}, { where: { id: accessTokenData.id } })
+                        .update({ password: hashedPassword }, { where: { id: accessTokenData.id } })
                         .then(() => {
-                            Users.update({ password: hashedPassword }, { where: { id: accessTokenData.id } })
-                            .then(() => {
-                                return res.status(200).json({ message: 'Nickname and Password Successfully Updated!' })
-                            })
+                            return res.status(200).json({ message: 'Password Successfully Updated!' })
                         })
                         .catch((err) => {
                             console.log(err);
@@ -51,4 +47,5 @@ module.exports = async (req, res) => {
                 console.log(err);
             });
     }
-};
+
+}

@@ -82,9 +82,6 @@ app.post('/board/delete/comment', controller.deleteComment);
 
 // ( ++++++++++++++++++++ 띄어놓기 띄어놓기 띄어놓기 ++++++++++++++++++++ )
 
-// 유저정보 수정 요청
-app.post('/edit', controller.updateUserInfo);
-
 // 회원탈퇴 요청
 app.delete('/unregister', controller.unRegister);
 
@@ -99,6 +96,12 @@ app.post('/delzzim', controller.deleteZzim);
 
 // 내 게시글 목록 요청
 app.get('/myposts', controller.myPosts);
+
+// 닉네임 수정 요청
+app.post('/nickname', controller.changeNick);
+
+// 비밀번호 수정 요청
+app.post('/password', controller.changePW);
 
 
 const port = 4000;

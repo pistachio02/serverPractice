@@ -15,10 +15,12 @@ module.exports = {
     addComment: require('./boards/CommentAdd'),
     deleteComment: require('./boards/CommentDelete'),
     // ( ++++++++++++++++++++ 띄어놓기 띄어놓기 띄어놓기 ++++++++++++++++++++ )
-    updateUserInfo: require('./myPages/UpdateUserInfo'),
     unRegister: require('./myPages/UnRegister'),
     zzim: require('./myPages/zzimList'),
     addZzim: require('./myPages/addZzim'),
     deleteZzim: require('./myPages/deleteZzim'),
     myPosts: require('./myPages/myPost'),
+    // ( ++++++++++++++++++++ 혹시몰라 혹시몰라 혹시몰라 ++++++++++++++++++++ )
+    changeNick: require('./myPages/ChangeNick'),
+    changePW: require('./myPages/ChangePW'),
 };
